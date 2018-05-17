@@ -1,0 +1,44 @@
+*** Settings ***
+Documentation               This test is to validate the public API search fields functionality
+Library                     Selenium2Library
+Resource                    ../../resources/pega.robot
+Resource                    ../../resources/browsers.robot
+Variables                   ${CONFIG_PATH}
+
+
+
+
+*** Test Cases ***
+
+Create Interaction
+
+        Login into Pega
+        sleep     3s
+        Click element      //*[@id="RULE_KEY"]/div[1]/div/div/div[1]/div/div/div/div/div[3]/div
+        Capture Page ScreenShot
+#        Click element     //*[@id="RULE_KEY"]/div[1]/div/div/div[1]/div/div/div/div/div[3]/div/div
+        Click element       ${xpath_click_add_service}
+
+        sleep     3s
+        Capture Page ScreenShot
+        Get Customer Info
+#        sleep       3s
+#        capture page screenshot
+#        input text     ${xpath_cust_last_name}     ${cust_last_name}
+#        Capture page screenshot
+
+#Validate Customer Search
+
+
+
+
+
+
+
+
+
+
+
+
+
+

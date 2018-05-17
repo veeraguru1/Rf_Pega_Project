@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180510 09:53:07.787" generator="Robot 3.0.2 (Python 2.7.14 on darwin)">
+<suite id="s1" name="Pegatest">
+<suite source="/Users/veeraguru.s/project/workspace/pega/tests/pegatest" id="s1-s1" name="Pegatest">
+<kw type="setup" name="Web suite setup">
+<kw name="Set suite variables" library="suite_variables">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>/Users/veeraguru.s/project/workspace/pega/resources</arg>
+</arguments>
+<status status="PASS" endtime="20180510 09:53:08.164" starttime="20180510 09:53:08.164"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${RESOURCES}</arg>
+<arg>/Users/veeraguru.s/project/workspace/pega/resources</arg>
+<arg>children=true</arg>
+</arguments>
+<msg timestamp="20180510 09:53:08.166" level="INFO">${RESOURCES} = /Users/veeraguru.s/project/workspace/pega/resources</msg>
+<status status="PASS" endtime="20180510 09:53:08.166" starttime="20180510 09:53:08.164"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${CONFIG_PATH}</arg>
+<arg>/Users/veeraguru.s/project/workspace/pega/resources/../config/__init__.py</arg>
+<arg>children=true</arg>
+</arguments>
+<msg timestamp="20180510 09:53:08.167" level="INFO">${CONFIG_PATH} = /Users/veeraguru.s/project/workspace/pega/resources/../config/__init__.py</msg>
+<status status="PASS" endtime="20180510 09:53:08.168" starttime="20180510 09:53:08.166"></status>
+</kw>
+<status status="PASS" endtime="20180510 09:53:08.168" starttime="20180510 09:53:08.163"></status>
+</kw>
+<status status="PASS" endtime="20180510 09:53:08.168" starttime="20180510 09:53:08.163"></status>
+</kw>
+<suite source="/Users/veeraguru.s/project/workspace/pega/tests/pegatest/pegapoc" id="s1-s1-s1" name="Pegapoc">
+<suite source="/Users/veeraguru.s/project/workspace/pega/tests/pegatest/pegapoc/general.txt" id="s1-s1-s1-s1" name="General">
+<test id="s1-s1-s1-s1-t1" name="Create Interaction">
+<kw type="setup" name="Open BrowserCompatibility" library="browsers">
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${browser}'=='phantom'</arg>
+<arg>Open HeadlessPhantomJS</arg>
+</arguments>
+<status status="PASS" endtime="20180510 09:53:08.189" starttime="20180510 09:53:08.188"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${browser}'=='chrome'</arg>
+<arg>Open HeadlessChrome</arg>
+</arguments>
+<kw name="Open HeadlessChrome" library="browsers">
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+</arguments>
+<assign>
+<var>${chrome_options}</var>
+</assign>
+<msg timestamp="20180510 09:53:08.190" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x10d64d710&gt;</msg>
+<status status="PASS" endtime="20180510 09:53:08.190" starttime="20180510 09:53:08.190"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>set_binary=${driver_path}</arg>
+</arguments>
+<assign>
+<var>${chrome_options.set_binary}</var>
+</assign>
+<msg timestamp="20180510 09:53:08.191" level="INFO">${chrome_options.set_binary} = set_binary=/usr/local/bin/chromedriver</msg>
+<status status="PASS" endtime="20180510 09:53:08.191" starttime="20180510 09:53:08.190"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>disable-gpu</arg>
+</arguments>
+<status status="PASS" endtime="20180510 09:53:08.191" starttime="20180510 09:53:08.191"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>window-size\=1024,768</arg>
+</arguments>
+<status status="PASS" endtime="20180510 09:53:08.192" starttime="20180510 09:53:08.191"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>no-sandbox</arg>
+</arguments>
+<status status="PASS" endtime="20180510 09:53:08.192" starttime="20180510 09:53:08.192"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>ignore-certificate-errors</arg>
+</arguments>
+<status status="PASS" endtime="20180510 09:53:08.193" starttime="20180510 09:53:08.192"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>disable-infobars</arg>
+</arguments>
+<status status="PASS" endtime="20180510 09:53:08.193" starttime="20180510 09:53:08.193"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>test-type</arg>
+</arguments>
+<status status="PASS" endtime="20180510 09:53:08.194" starttime="20180510 09:53:08.193"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>disable-extensions</arg>
+</arguments>
+<status status="PASS" endtime="20180510 09:53:08.195" starttime="20180510 09:53:08.195"></status>
+</kw>
+<kw name="Create Webdriver" library="Selenium2Library">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+<arg>chrome_options=${chrome_options}</arg>
+</arguments>
+<msg timestamp="20180510 09:53:08.196" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" endtime="20180510 09:53:10.262" starttime="20180510 09:53:08.195"></status>
+</kw>
+<status status="PASS" endtime="20180510 09:53:10.263" starttime="20180510 09:53:08.189"></status>
+</kw>
+<status status="PASS" endtime="20180510 09:53:10.263" starttime="20180510 09:53:08.189"></status>
+</kw>
+<status status="PASS" endtime="20180510 09:53:10.264" starttime="20180510 09:53:08.188"></status>
+</kw>
+<kw name="Login into Pega" library="pega">
+<doc>PegaWeb</doc>
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${pega_login_url}</arg>
+</arguments>
+<msg timestamp="20180510 09:53:10.268" level="INFO">Opening url 'https://sainsbury-2.pegacloud.com/prweb/beEBp4uRVTogorRwSwWqbOtn9IL2fwdI*/!STANDARD?'</msg>
+<status status="PASS" endtime="20180510 09:53:19.312" starttime="20180510 09:53:10.267"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180510 09:53:19.690" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-554.png"&gt;&lt;img src="selenium-screenshot-554.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180510 09:53:19.690" starttime="20180510 09:53:19.313"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${pega_xpath_uid}</arg>
+<arg>${wait_for_button_timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20180510 09:53:19.722" starttime="20180510 09:53:19.691"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${pega_xpath_uid}</arg>
+<arg>${pega_login_uid}</arg>
+</arguments>
+<msg timestamp="20180510 09:53:19.723" level="INFO">Typing text 'csruser' into text field '//*[@id="txtUserID"]'.</msg>
+<status status="PASS" endtime="20180510 09:53:19.838" starttime="20180510 09:53:19.723"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180510 09:53:20.199" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-555.png"&gt;&lt;img src="selenium-screenshot-555.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180510 09:53:20.199" starttime="20180510 09:53:19.839"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${pega_xpath_pwd}</arg>
+<arg>${wait_for_button_timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20180510 09:53:20.227" starttime="20180510 09:53:20.199"></status>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${pega_xpath_pwd}</arg>
+<arg>${pega_login_pwd}</arg>
+</arguments>
+<msg timestamp="20180510 09:53:20.228" level="INFO">Typing password into text field '//*[@id="txtPassword"]'.</msg>
+<status status="PASS" endtime="20180510 09:53:20.299" starttime="20180510 09:53:20.228"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${pega_xpath_clicksubmitbtn}</arg>
+</arguments>
+<msg timestamp="20180510 09:53:20.299" level="INFO">Clicking button '//*[@id="sub"]'.</msg>
+<status status="PASS" endtime="20180510 09:53:21.475" starttime="20180510 09:53:20.299"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<doc>Waits until element ``locator`` appears on current page.</doc>
+<arguments>
+<arg>${pega_xpath_mainpage}</arg>
+</arguments>
+<status status="PASS" endtime="20180510 09:53:21.497" starttime="20180510 09:53:21.476"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180510 09:53:21.869" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-556.png"&gt;&lt;img src="selenium-screenshot-556.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180510 09:53:21.869" starttime="20180510 09:53:21.498"></status>
+</kw>
+<status status="PASS" endtime="20180510 09:53:21.869" starttime="20180510 09:53:10.265"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180510 09:53:26.871" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20180510 09:53:26.872" starttime="20180510 09:53:21.869"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>//*[@id="RULE_KEY"]/div[1]/div/div/div[1]/div/div/div/div/div[3]/div</arg>
+</arguments>
+<msg timestamp="20180510 09:53:26.873" level="INFO">Clicking element '//*[@id="RULE_KEY"]/div[1]/div/div/div[1]/div/div/div/div/div[3]/div'.</msg>
+<status status="PASS" endtime="20180510 09:53:26.934" starttime="20180510 09:53:26.872"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180510 09:53:27.392" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-557.png"&gt;&lt;img src="selenium-screenshot-557.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180510 09:53:27.392" starttime="20180510 09:53:26.934"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_click_add_service}</arg>
+</arguments>
+<msg timestamp="20180510 09:53:27.394" level="INFO">Clicking element '//*[contains(@data-click,'Interaction-Call')]'.</msg>
+<status status="PASS" endtime="20180510 09:53:27.462" starttime="20180510 09:53:27.393"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180510 09:53:32.464" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20180510 09:53:32.465" starttime="20180510 09:53:27.463"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180510 09:53:32.901" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-558.png"&gt;&lt;img src="selenium-screenshot-558.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180510 09:53:32.901" starttime="20180510 09:53:32.465"></status>
+</kw>
+<kw name="Get Customer Info" library="pega">
+<doc>Get Customer Information</doc>
+<kw name="Select Frame" library="Selenium2Library">
+<doc>Sets frame identified by ``locator`` as the current frame.</doc>
+<arguments>
+<arg>//*[@id="PegaGadget1Ifr"]</arg>
+</arguments>
+<msg timestamp="20180510 09:53:32.902" level="INFO">Selecting frame '//*[@id="PegaGadget1Ifr"]'.</msg>
+<status status="PASS" endtime="20180510 09:53:32.950" starttime="20180510 09:53:32.902"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180510 09:53:33.338" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-559.png"&gt;&lt;img src="selenium-screenshot-559.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180510 09:53:33.339" starttime="20180510 09:53:32.950"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_cust_last_name}</arg>
+<arg>${cust_last_name}</arg>
+</arguments>
+<msg timestamp="20180510 09:53:33.339" level="INFO">Typing text 'george' into text field '//*[@id="SearchLastName"]'.</msg>
+<status status="PASS" endtime="20180510 09:53:33.439" starttime="20180510 09:53:33.339"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180510 09:53:33.827" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-560.png"&gt;&lt;img src="selenium-screenshot-560.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180510 09:53:33.827" starttime="20180510 09:53:33.439"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180510 09:53:34.217" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-561.png"&gt;&lt;img src="selenium-screenshot-561.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180510 09:53:34.217" starttime="20180510 09:53:33.828"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_cust_post_code}</arg>
+<arg>${cust_post_code}</arg>
+</arguments>
+<msg timestamp="20180510 09:53:34.218" level="INFO">Typing text 'CV2 2SJ' into text field '//*[@id="SearchPostCode"]'.</msg>
+<status status="PASS" endtime="20180510 09:53:34.441" starttime="20180510 09:53:34.217"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${xpath_click_cust_search}</arg>
+</arguments>
+<msg timestamp="20180510 09:53:34.442" level="INFO">Clicking element '//*[@id="CT"]/div/div/div/div/div[2]/div/div/span/button/div/div/div/div'.</msg>
+<status status="PASS" endtime="20180510 09:53:34.553" starttime="20180510 09:53:34.441"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<doc>Waits until element ``locator`` is enabled.</doc>
+<arguments>
+<arg>//*[contains(text(), 'Matching Customers')]</arg>
+<arg>20s</arg>
+</arguments>
+<status status="PASS" endtime="20180510 09:53:37.351" starttime="20180510 09:53:34.553"></status>
+</kw>
+<kw name="Get Element Count" library="Selenium2Library">
+<doc>Returns number of elements matching ``locator``.</doc>
+<arguments>
+<arg>//*[@id="PEGA_GRID_CONTENT"]</arg>
+</arguments>
+<assign>
+<var>${count}</var>
+</assign>
+<msg timestamp="20180510 09:53:37.375" level="INFO">${count} = 2</msg>
+<status status="PASS" endtime="20180510 09:53:37.375" starttime="20180510 09:53:37.351"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${count}</arg>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20180510 09:53:37.375" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20180510 09:53:37.376" starttime="20180510 09:53:37.375"></status>
+</kw>
+<kw name="Execute Javascript" library="Selenium2Library">
+<doc>Executes the given JavaScript code.</doc>
+<arguments>
+<arg>window.scrollTo(0, document.body.scrollHeight)</arg>
+</arguments>
+<msg timestamp="20180510 09:53:37.376" level="INFO">Executing JavaScript:
+window.scrollTo(0, document.body.scrollHeight)</msg>
+<status status="PASS" endtime="20180510 09:53:37.385" starttime="20180510 09:53:37.376"></status>
+</kw>
+<kw name="Get Table Cell" library="Selenium2Library">
+<doc>Returns contents of table cell.</doc>
+<arguments>
+<arg>//*[@id="gridLayoutTable"]</arg>
+<arg>1</arg>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>${dict}</var>
+</assign>
+<msg timestamp="20180510 09:53:37.475" level="INFO">${dict} = </msg>
+<status status="PASS" endtime="20180510 09:53:37.475" starttime="20180510 09:53:37.386"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes screenshot of the current page and embeds it into log file.</doc>
+<msg timestamp="20180510 09:53:37.876" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-562.png"&gt;&lt;img src="selenium-screenshot-562.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180510 09:53:37.876" starttime="20180510 09:53:37.475"></status>
+</kw>
+<status status="PASS" endtime="20180510 09:53:37.876" starttime="20180510 09:53:32.901"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20180510 09:53:38.067" starttime="20180510 09:53:37.877"></status>
+</kw>
+<status status="PASS" endtime="20180510 09:53:38.067" critical="yes" starttime="20180510 09:53:08.187"></status>
+</test>
+<doc>This test is to validate the public API search fields functionality</doc>
+<status status="PASS" endtime="20180510 09:53:38.070" starttime="20180510 09:53:08.170"></status>
+</suite>
+<status status="PASS" endtime="20180510 09:53:38.075" starttime="20180510 09:53:08.168"></status>
+</suite>
+<kw type="teardown" name="Web suite teardown">
+<kw name="Delete All Sessions" library="RequestsLibrary">
+<doc>Removes all the session objects</doc>
+<msg timestamp="20180510 09:53:38.082" level="INFO">Delete All Sessions</msg>
+<status status="PASS" endtime="20180510 09:53:38.083" starttime="20180510 09:53:38.082"></status>
+</kw>
+<status status="PASS" endtime="20180510 09:53:38.083" starttime="20180510 09:53:38.081"></status>
+</kw>
+<doc>This is a basic Store Locator Public API testing</doc>
+<status status="PASS" endtime="20180510 09:53:38.083" starttime="20180510 09:53:07.824"></status>
+</suite>
+<status status="PASS" endtime="20180510 09:53:38.088" starttime="20180510 09:53:07.789"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Pegatest" pass="1">Pegatest</stat>
+<stat fail="0" id="s1-s1" name="Pegatest" pass="1">Pegatest.Pegatest</stat>
+<stat fail="0" id="s1-s1-s1" name="Pegapoc" pass="1">Pegatest.Pegatest.Pegapoc</stat>
+<stat fail="0" id="s1-s1-s1-s1" name="General" pass="1">Pegatest.Pegatest.Pegapoc.General</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
